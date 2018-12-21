@@ -15,7 +15,7 @@ function timeout(msecs, timeout_control, returnvalue_when_timeout, tag) {
     return new Promise(function(resolve, reject) {
         var st_func = function() {
             //如果操作取消，那么清理后退出
-            if (timeout_control && timeout_control.if_stop() > 0) {
+            if (timeout_control && timeout_control.if_stop()) {
                 //不能马上返回，要给正常操作的返回留出时间
                 setTimeout(function() {
                     console.log((tag != null? tag + ' ':'') + 'operation was finished, timeout was canceled.')
